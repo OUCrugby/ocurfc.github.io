@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>小樽商科大学ラグビー部 公式サイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="小樽商科大学ラグビー部の公式ホームページです。チーム紹介、部員紹介、試合情報、入部案内などを掲載しています。"
+  />
+  <style>
+    /* ========= カラーテーマ ========= */
+    :root {
+      --burgundy: #7b1e3b;
+      --burgundy-dark: #5c152b;
+      --navy: #002244;
+      --navy-dark: #00142a;
+      --bg-light: #f7f4f6;
+      --text-main: #222222;
+      --accent-gold: #f2b800;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ========= ヘッダー ========= */
+    header {
+      background: linear-gradient(90deg, var(--navy-dark), var(--burgundy-dark));
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ========= ハンバーガーメニュー ========= */
+    .hamburger {
+      display: none; /* PCでは非表示 */
+      width: 32px;
+      height: 32px;
+      padding: 4px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger-line {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background-color: #ffffff;
+      margin: 3px 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 15;
+    }
+
+    .nav-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .hamburger.active .line-top {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .hamburger.active .line-middle {
+      opacity: 0;
+    }
+
+    .hamburger.active .line-bottom {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+
+    /* ========= ヒーローセクション ========= */
+    .hero {
+      background: linear-gradient(
+        135deg,
+        rgba(0, 34, 68, 0.95),
+        rgba(123, 30, 59, 0.95)
+      );
+      color: #fff;
+      padding: 60px 0 50px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-photo {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      object-fit: cover;
+    }
+
+    .hero-title-sub {
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin: 0 0 12px;
+      letter-spacing: 0.08em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-lead {
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .goals {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .goal-badge {
+      min-width: 180px;
+      padding: 8px 14px;
+      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+    }
+
+    .goal-badge span {
+      display: block;
+      font-size: 11px;
+      opacity: 0.8;
+      margin-bottom: 2px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent-gold);
+      color: #222;
+      padding: 10px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+      font-size: 14px;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(1px);
+    }
+
+    /* ========= セクション共通 ========= */
+    section {
+      padding: 40px 0;
+      margin-bottom: 8px;
+    }
+
+    section:nth-of-type(odd) {
+      background-color: #ffffff;
+    }
+
+    section:nth-of-type(even) {
+      background-color: #faf7fa;
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 22px;
+      border-left: 5px solid var(--burgundy);
+      padding-left: 8px;
+      color: var(--navy-dark);
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .two-column > div {
+      flex: 1 1 260px;
+    }
+
+    /* ========= カード & グリッド ========= */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      font-size: 14px;
+    }
+
+    .card h3 {
+      margin-top: 8px;
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: var(--navy);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background-color: #f5dde5;
+      color: var(--burgundy-dark);
+      margin-left: 6px;
+    }
+
+    .role-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background-color: #dde6f7;
+      color: var(--navy-dark);
+      margin-left: 4px;
+    }
+
+    .member-photo {
+      width: 100%;
+      max-width: 160px;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 8px;
+    }
+
+    .grade-heading {
+      font-size: 18px;
+      margin: 24px 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #ddd;
+      color: var(--navy-dark);
+    }
+
+    /* ========= 部員フィルターボタン ========= */
+    .member-filters {
+      margin-bottom: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-weight: 600;
+      color: var(--navy-dark);
+    }
+
+    .filter-btn {
+      border-radius: 999px;
+      border: 1px solid #cccccc;
+      background-color: #ffffff;
+      padding: 3px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background-color: var(--burgundy);
+      color: #ffffff;
+      border-color: var(--burgundy-dark);
+    }
+
+    /* ========= テーブル ========= */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background-color: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 6px 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--navy);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ========= ブログ ========= */
+    #blog .blog-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #blog .blog-list li {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    #blog .blog-list a {
+      text-decoration: none;
+      color: var(--navy-dark);
+    }
+
+    #blog .blog-list a span.blog-date {
+      font-size: 12px;
+      color: #777;
+      margin-right: 6px;
+    }
+
+    #blog .blog-more {
+      margin-top: 10px;
+      text-align: right;
+      font-size: 13px;
+    }
+
+    #blog .blog-more a {
+      color: var(--burgundy-dark);
+      text-decoration: underline;
+    }
+
+    /* ========= フッター ========= */
+    footer {
+      background-color: var(--navy-dark);
+      color: #ddd;
+      padding: 14px 0;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ========= レスポンシブ ========= */
+    @media (max-width: 768px) {
+      .header-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .hero {
+        padding: 40px 0 32px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .goals {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .member-filters {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      /* スマホ時：左からスライドするサイドメニューに変化 */
+      .nav-links {
+        position: fixed;
+        inset: 0 auto 0 0;
+        width: 260px;
+        max-width: 80%;
+        background-color: var(--navy-dark);
+        padding: 60px 16px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease-out;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
+        z-index: 20;
+      }
+
+      .nav-links ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .hamburger {
+        display: inline-flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== ヘッダー ========== -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">小樽商科大学ラグビー部</div>
+
+      <!-- ハンバーガーボタン（スマホで表示） -->
+      <button class="hamburger" aria-label="メニューを開く">
+        <span class="hamburger-line line-top"></span>
+        <span class="hamburger-line line-middle"></span>
+        <span class="hamburger-line line-bottom"></span>
+      </button>
+
+      <!-- ナビゲーション -->
+      <nav class="nav-links">
+        <ul>
+          <li><a href="#about">チーム紹介</a></li>
+          <li><a href="#goals">目標</a></li>
+          <li><a href="#members">部員紹介</a></li>
+          <li><a href="#schedule">試合情報</a></li>
+          <li><a href="#join">入部案内</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="#blog">ブログ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メニュー展開時のオーバーレイ -->
+  <div class="nav-overlay"></div>
+
+  <!-- ========== ヒーロー ========== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <img
+        src="images/hero-game.jpg"
+        alt="試合中の様子（小樽商科大学ラグビー部）"
+        class="hero-photo"
+      />
+
+      <div class="hero-title-sub">
+        OTARU UNIVERSITY OF COMMERCE RUGBY FOOTBALL CLUB
+      </div>
+      <h1>「愛されるチームへ」 小樽から、北海道一位へ。</h1>
+
+      <p class="hero-lead">
+        小樽商科大学ラグビー部は、<br />
+        地域・大学・家族・仲間から「愛されるチーム」をめざして日々活動しています。
+      </p>
+
+      <div class="goals">
+        <div class="goal-badge">
+          <span>チーム目標</span>
+          愛されるチームへ
+        </div>
+        <div class="goal-badge">
+          <span>シーズン目標</span>
+          北海道一位
+        </div>
+      </div>
+
+      <a href="#join" class="btn-primary">入部・見学を検討している方へ</a>
+    </div>
+  </section>
+
+  <!-- ========== チーム紹介 ========== -->
+  <section id="about">
+    <div class="container">
+      <h2>チーム紹介</h2>
+      <p class="section-subtitle">
+        小樽から北海道一位を目指し、「愛されるチーム」を合言葉に活動しています。
+      </p>
+
+      <div class="two-column">
+        <div>
+          <p>
+            小樽商科大学ラグビー部は、北海道学生ラグビーリーグに所属する大学ラグビーチームです。<br />
+            ラグビー経験者はもちろん、大学からラグビーを始めた部員やマネージャーも多く在籍しており、
+            一人ひとりが成長し合える環境づくりを大切にしています。
+          </p>
+          <ul>
+            <li>活動場所：からまつ公園グラウンド ほか</li>
+            <li>活動日：平日練習＋週末ゲーム（シーズンによって変動）</li>
+            <li>部員数：○名（選手・マネージャー・スタッフ）</li>
+          </ul>
+        </div>
+
+        <div>
+          <img
+            src="images/about-training.jpg"
+            alt="練習風景（からまつ公園グラウンド）"
+            class="member-photo"
+          />
+          <p style="font-size:12px; text-align:center; margin-top:4px;">
+            練習風景（写真は差し替えてください）
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 目標セクション ========== -->
+  <section id="goals">
+    <div class="container">
+      <h2>チーム目標・シーズン目標</h2>
+      <p class="section-subtitle">
+        チームとして大切にしている価値観と、今シーズンの具体的なゴールです。
+      </p>
+
+      <div class="two-column">
+        <div class="card">
+          <h3>チーム目標「愛されるチームへ」</h3>
+          <p>
+            グラウンド内外の振る舞いを含め、地域の方々・大学関係者・家族・OB・対戦相手など、
+            関わる全ての人に応援したいと思ってもらえるチームであることを目指しています。
+          </p>
+        </div>
+        <div class="card">
+          <h3>シーズン目標「北海道一位」</h3>
+          <p>
+            北海道学生ラグビーリーグで優勝し、「北海道一位」の座を勝ち取ることがシーズンの大きな目標です。
+            日々の練習や試合一つひとつの積み重ねを大切にし、目標達成に向けて全員で挑戦していきます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 部員紹介 ========== -->
+  <section id="members">
+    <div class="container">
+      <h2>部員紹介</h2>
+      <p class="section-subtitle">
+        ボタンで「学年」と「ポジション」を絞り込みできます。<br />
+        ※実際のメンバー情報は、アメーバブログや部内名簿を参照しながら更新してください。
+      </p>
+
+      <!-- ▼ フィルターボタン（学年／ポジション） -->
+      <div class="member-filters">
+        <div class="filter-group">
+          <span class="filter-label">学年：</span>
+          <button class="filter-btn active" data-filter-grade="all">全学年</button>
+          <button class="filter-btn" data-filter-grade="4">4年</button>
+          <button class="filter-btn" data-filter-grade="3">3年</button>
+          <button class="filter-btn" data-filter-grade="2">2年</button>
+          <button class="filter-btn" data-filter-grade="1">1年</button>
+          <button class="filter-btn" data-filter-grade="staff">スタッフ</button>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">ポジション：</span>
+          <button class="filter-btn active" data-filter-position="all">すべて</button>
+          <button class="filter-btn" data-filter-position="FW">FW</button>
+          <button class="filter-btn" data-filter-position="BK">BK</button>
+          <button class="filter-btn" data-filter-position="MG">MG</button>
+          <button class="filter-btn" data-filter-position="staff">スタッフ</button>
+        </div>
+      </div>
+
+      <!-- ▼ 4年生 -->
+      <h3 class="grade-heading">4年生</h3>
+      <div class="card-grid">
+        <div class="card" data-grade="4" data-position-group="FW">
+          <img
+            src="images/members/sample-4a-1.jpg"
+            alt="4年生選手（例）"
+            class="member-photo"
+          />
+          <h3>
+            例）佐藤 太郎
+            <span class="tag">4年</span>
+            <span class="role-tag">選手</span>
+          </h3>
+          <p>
+            ポジション：LO<br />
+            出身校：△△高校<br />
+            役職：主将
+          </p>
+        </div>
+        <!-- ここに4年生を追加 -->
+      </div>
+
+      <!-- ▼ 3年生 -->
+      <h3 class="grade-heading">3年生</h3>
+      <div class="card-grid">
+        <div class="card" data-grade="3" data-position-group="FW">
+          <img
+            src="images/members/yamaguchi_shidou.jpg"
+            alt="山口 士十"
+            class="member-photo"
+          />
+          <h3>
+            山口 士十
+            <span class="tag">3年</span>
+            <span class="role-tag">選手</span>
+          </h3>
+          <p>
+            ポジション：FL / NO.8<br />
+            出身校：○○高校<br />
+            役職：副将（例）
+          </p>
+        </div>
+
+        <div class="card" data-grade="3" data-position-group="BK">
+          <img
+            src="images/members/sample-3a-2.jpg"
+            alt="3年生選手（例）"
+            class="member-photo"
+          />
+          <h3>
+            例）田中 健
+            <span class="tag">3年</span>
+            <span class="role-tag">選手</span>
+          </h3>
+          <p>
+            ポジション：SO<br />
+            出身校：□□高校
+          </p>
+        </div>
+      </div>
+
+      <!-- ▼ 2年生 -->
+      <h3 class="grade-heading">2年生</h3>
+      <div class="card-grid">
+        <div class="card" data-grade="2" data-position-group="BK">
+          <img
+            src="images/members/sample-2a-1.jpg"
+            alt="2年生選手（例）"
+            class="member-photo"
+          />
+          <h3>
+            例）鈴木 一郎
+            <span class="tag">2年</span>
+            <span class="role-tag">選手</span>
+          </h3>
+          <p>
+            ポジション：CTB<br />
+            出身校：▲▲高校
+          </p>
+        </div>
+      </div>
+
+      <!-- ▼ 1年生 -->
+      <h3 class="grade-heading">1年生</h3>
+      <div class="card-grid">
+        <div class="card" data-grade="1" data-position-group="BK">
+          <img
+            src="images/members/sample-1a-1.jpg"
+            alt="1年生選手（例）"
+            class="member-photo"
+          />
+          <h3>
+            例）高橋 新
+            <span class="tag">1年</span>
+            <span class="role-tag">選手</span>
+          </h3>
+          <p>
+            ポジション：WTB<br />
+            出身校：☆☆高校
+          </p>
+        </div>
+      </div>
+
+      <!-- ▼ スタッフ -->
+      <h3 class="grade-heading">スタッフ</h3>
+      <div class="card-grid">
+        <div class="card" data-grade="staff" data-position-group="staff">
+          <img
+            src="images/staff/sample-coach.jpg"
+            alt="監督（例）"
+            class="member-photo"
+          />
+          <h3>
+            例）山本 太郎
+            <span class="role-tag">監督</span>
+          </h3>
+          <p>
+            出身校：○○大学<br />
+            一言：小樽から全国を目指して指導しています。
+          </p>
+        </div>
+
+        <div class="card" data-grade="3" data-position-group="MG">
+          <img
+            src="images/members/sample-mg-leader.jpg"
+            alt="マネージャーリーダー（例）"
+            class="member-photo"
+          />
+          <h3>
+            例）佐々木 花子
+            <span class="tag">3年</span>
+            <span class="role-tag">MGリーダー</span>
+          </h3>
+          <p>
+            出身校：◎◎高校<br />
+            一言：選手が全力でプレーできる環境づくりを大切にしています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 試合情報 ========== -->
+  <section id="schedule">
+    <div class="container">
+      <h2>試合情報</h2>
+      <p class="section-subtitle">直近の試合予定と主な試合結果を掲載しています。</p>
+
+      <h3 style="font-size:16px; margin-bottom:6px;">試合予定</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>大会名</th>
+            <th>対戦相手</th>
+            <th>会場</th>
+            <th>キックオフ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025/09/15</td>
+            <td>北海道学生リーグ 第1節</td>
+            <td>○○大学</td>
+            <td>○○グラウンド</td>
+            <td>13:00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:16px; margin:22px 0 6px;">試合結果</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>大会名</th>
+            <th>対戦相手</th>
+            <th>スコア</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025/06/01</td>
+            <td>春季交流戦</td>
+            <td>△△大学</td>
+            <td>小樽商大 ○ 28 - 21 △△大</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== 入部案内 ========== -->
+  <section id="join">
+    <div class="container">
+      <h2>入部案内</h2>
+      <p class="section-subtitle">
+        ラグビー経験者はもちろん、未経験者・マネージャーも大歓迎です。
+      </p>
+
+      <div class="two-column">
+        <div>
+          <p>
+            小樽商科大学ラグビー部では、<strong>大学からラグビーを始めたい人</strong>も大歓迎です。<br />
+            基礎トレーニングやタックルの姿勢づくりなど、段階的に指導していきます。
+          </p>
+          <ul>
+            <li>見学・体験はいつでもOK（事前にSNSかメールでご連絡ください）</li>
+            <li>友人と一緒の参加も歓迎です</li>
+            <li>マネージャー志望の方も募集しています</li>
+          </ul>
+        </div>
+        <div>
+          <p>主な連絡方法：</p>
+          <ul>
+            <li>Instagram：@ocurfc（例）</li>
+            <li>X（旧Twitter）：@ocurugby（例）</li>
+            <li>メール：ocurfc@example.com</li>
+          </ul>
+          <p>※実際のアカウント名・メールアドレスに差し替えてご利用ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== お問い合わせ ========== -->
+  <section id="contact">
+    <div class="container">
+      <h2>お問い合わせ</h2>
+      <p>
+        試合のご依頼、取材のご相談、OB・OGの皆さまからのご連絡は、以下のアドレスまでお願いいたします。
+      </p>
+      <p>
+        メール：
+        <a href="mailto:ocurfc@example.com">ocurfc@example.com</a>
+      </p>
+      <p>※実際に運用する際は、チームで管理しているメールアドレスに変更してください。</p>
+    </div>
+  </section>
+
+  <!-- ========== ブログ最新記事 ========== -->
+  <section id="blog">
+    <div class="container">
+      <h2>ブログ最新記事</h2>
+      <p class="section-subtitle">
+        Amebaブログの最新記事を表示しています。タイトルをクリックすると記事ページが開きます。
+      </p>
+      <ul id="blog-list" class="blog-list">
+        <li>読み込み中...</li>
+      </ul>
+      <p class="blog-more">
+        <a href="https://ameblo.jp/ouc-rugby-football-club/" target="_blank" rel="noopener noreferrer">
+          ブログをもっと見る ＞
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== フッター ========== -->
+  <footer>
+    <div class="container">
+      &copy; 2025 小樽商科大学ラグビー部. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- ========== JavaScript ========== -->
+  <script>
+    // ハンバーガーメニュー
+    (function () {
+      const hamburger = document.querySelector(".hamburger");
+      const nav = document.querySelector(".nav-links");
+      const overlay = document.querySelector(".nav-overlay");
+
+      if (!hamburger || !nav || !overlay) return;
+
+      function openMenu() {
+        nav.classList.add("open");
+        overlay.classList.add("show");
+        hamburger.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMenu() {
+        nav.classList.remove("open");
+        overlay.classList.remove("show");
+        hamburger.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      hamburger.addEventListener("click", function () {
+        if (nav.classList.contains("open")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      overlay.addEventListener("click", closeMenu);
+
+      nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+    })();
+
+    // 部員フィルター（学年／ポジション）
+    (function () {
+      const cards = document.querySelectorAll("#members .card");
+      const gradeButtons = document.querySelectorAll(".filter-btn[data-filter-grade]");
+      const positionButtons = document.querySelectorAll(".filter-btn[data-filter-position]");
+
+      if (!cards.length) return;
+
+      let currentGrade = "all";
+      let currentPosition = "all";
+
+      function applyFilters() {
+        cards.forEach(function (card) {
+          const grade = card.dataset.grade || "all";
+          const posGroup = card.dataset.positionGroup || "all";
+
+          const matchGrade = currentGrade === "all" || currentGrade === grade;
+          const matchPos =
+            currentPosition === "all" || currentPosition === posGroup;
+
+          card.style.display = matchGrade && matchPos ? "" : "none";
+        });
+      }
+
+      gradeButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          gradeButtons.forEach(function (b) {
+            b.classList.remove("active");
+          });
+          btn.classList.add("active");
+          currentGrade = btn.dataset.filterGrade;
+          applyFilters();
+        });
+      });
+
+      positionButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          positionButtons.forEach(function (b) {
+            b.classList.remove("active");
+          });
+          btn.classList.add("active");
+          currentPosition = btn.dataset.filterPosition;
+          applyFilters();
+        });
+      });
+    })();
+
+    // ブログRSS取得
+    (function () {
+      const list = document.getElementById("blog-list");
+      if (!list) return;
+
+      const rssUrl = "https://rssblog.ameba.jp/ouc-rugby-football-club/rss.html";
+      const apiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
+
+      fetch(apiUrl)
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          const parser = new DOMParser();
+          const xml = parser.parseFromString(data.contents, "text/xml");
+          const items = xml.querySelectorAll("item");
+          list.innerHTML = "";
+
+          items.forEach(function (item, index) {
+            if (index >= 5) return;
+            const title = item.querySelector("title")?.textContent || "";
+            const link = item.querySelector("link")?.textContent || "#";
+            const pubDate = item.querySelector("pubDate")?.textContent || "";
+            const d = pubDate ? new Date(pubDate) : null;
+            let dateText = "";
+            if (d && !isNaN(d)) {
+              const y = d.getFullYear();
+              const m = ("0" + (d.getMonth() + 1)).slice(-2);
+              const day = ("0" + d.getDate()).slice(-2);
+              dateText = y + "/" + m + "/" + day;
+            }
+
+            const li = document.createElement("li");
+            li.innerHTML =
+              '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' +
+              (dateText ? '<span class="blog-date">' + dateText + "</span>" : "") +
+              title +
+              "</a>";
+            list.appendChild(li);
+          });
+
+          if (!list.children.length) {
+            list.innerHTML = "<li>ブログ記事が見つかりませんでした。</li>";
+          }
+        })
+        .catch(function () {
+          list.innerHTML = "<li>ブログを読み込めませんでした。</li>";
+        });
+    })();
+  </script>
+</body>
+</html>
