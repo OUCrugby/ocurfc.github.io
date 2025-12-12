@@ -24,6 +24,17 @@
       box-sizing: border-box;
     }
 
+    <script>
+  const slides = document.querySelectorAll('.hero-photo');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+</script>
+    
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -168,10 +179,7 @@
       margin: 0 auto 18px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
       object-fit: cover;
-    }
-
-    <img src="こうせいトライ.jpg" alt="こうせいのトライ" width="600">
-
+    
     .hero-title-sub {
       font-size: 14px;
       letter-spacing: 0.2em;
@@ -543,12 +551,12 @@
 
   <!-- ========== ヒーロー ========== -->
   <section class="hero">
-    <div class="container hero-inner">
-      <img
-        src="images/hero-game.jpg"
-        alt="試合中の様子（小樽商科大学ラグビー部）"
-        class="hero-photo"
-      />
+    <div class="hero-slideshow">
+  <img src="こうせいトライ.jpg" class="hero-photo active">
+  <img src="しゅうさくさんタックル.jpg" class="hero-photo">
+  <img src="るいくんスタンド.jpg" class="hero-photo">
+  <img src="しょーきろいくんjpg.jpg" class="hero-photo">
+</div>
 
       <div class="hero-title-sub">
         OTARU UNIVERSITY OF COMMERCE RUGBY FOOTBALL CLUB
@@ -706,8 +714,8 @@
             <span class="role-tag">選手</span>
           </h3>
           <p>
-            ポジション：FL / NO.8<br />
-            出身校：○○高校<br />
+            ポジション：LO/ FL<br />
+            出身校：小樽潮陵高校<br />
             役職：副将（例）
           </p>
         </div>
@@ -1070,4 +1078,5 @@
   </script>
 </body>
 </html>
+
 
