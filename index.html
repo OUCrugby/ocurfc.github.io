@@ -520,6 +520,29 @@
   opacity: 1;
 }
 
+   /* ===== 単調さを消す追加CSS（ここに入れる） ===== */
+.hero-slideshow {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+
+.hero {
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.7)
+  );
+  pointer-events: none;
+}
+ 
   </style>
   
 </head>
@@ -555,38 +578,43 @@
   <div class="nav-overlay"></div>
 
   <!-- ========== ヒーロー ========== -->
-  <section class="hero">
+ 
+<section class="hero">
+  <div class="hero-inner">
+
     <div class="hero-slideshow">
-  <img src="こうせいトライ.jpg" class="hero-photo active">
-  <img src="しゅうさくさんタックル.jpg" class="hero-photo">
-  <img src="るいくんスタンド.jpg" class="hero-photo">
-  <img src="しょーきろいくんjpg.jpg" class="hero-photo">
-</div>
-
-      <div class="hero-title-sub">
-        OTARU UNIVERSITY OF COMMERCE RUGBY FOOTBALL CLUB
-      </div>
-      <h1>「愛されるチームへ」 小樽から、北海道一位へ。</h1>
-
-      <p class="hero-lead">
-        小樽商科大学ラグビー部は、<br />
-        地域・大学・家族・仲間から「愛されるチーム」をめざして日々活動しています。
-      </p>
-
-      <div class="goals">
-        <div class="goal-badge">
-          <span>チーム目標</span>
-          愛されるチームへ
-        </div>
-        <div class="goal-badge">
-          <span>シーズン目標</span>
-          北海道一位
-        </div>
-      </div>
-
-      <a href="#join" class="btn-primary">入部・見学を検討している方へ</a>
+      <img src="こうせいトライ.jpg" class="hero-photo active">
+      <img src="しゅうさくさんタックル.jpg" class="hero-photo">
+      <img src="るいくんスタンド.jpg" class="hero-photo">
+      <img src="しょーきろいくんjpg.jpg" class="hero-photo">
     </div>
-  </section>
+
+    <div class="hero-title-sub">
+      OTARU UNIVERSITY OF COMMERCE RUGBY FOOTBALL CLUB
+    </div>
+
+    <h1>「愛されるチームへ」 小樽から、北海道一位へ。</h1>
+
+    <p class="hero-lead">
+      小樽商科大学ラグビー部は、<br />
+      地域・大学・家族・仲間から「愛されるチーム」をめざして日々活動しています。
+    </p>
+
+    <div class="goals">
+      <div class="goal-badge">
+        <span>チーム目標</span>
+        愛されるチームへ
+      </div>
+      <div class="goal-badge">
+        <span>シーズン目標</span>
+        北海道一位
+      </div>
+    </div>
+
+    <a href="#join" class="btn-primary">入部・見学を検討している方へ</a>
+
+  </div>
+</section>
 
   <!-- ========== チーム紹介 ========== -->
   <section id="about">
@@ -1097,6 +1125,7 @@
   </script>
 </body>
 </html>
+
 
 
 
