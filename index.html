@@ -501,11 +501,10 @@
 .hero-slideshow {
   position: relative;
   width: 100%;
-  max-width: 720px;
-  height: 400px;
-  margin: 0 auto 18px;
+  max-width: 1100px;   /* ← 720 → 1100 */
+  height: 560px;       /* ← 400 → 560 */
+  margin: 0 auto 28px;
 }
-
 .hero-photo {
   position: absolute;
   inset: 0;
@@ -542,7 +541,21 @@
   );
   pointer-events: none;
 }
- 
+
+    .hero {
+  padding: 80px 0 70px;   /* 上下も少し広げる */
+}
+
+    .hero-slideshow {
+  max-width: 1200px;
+}
+
+@media (min-width: 1024px) {
+  .hero-slideshow {
+    width: 110%;
+    margin-left: -5%;
+  }
+}
   </style>
   
 </head>
@@ -586,7 +599,7 @@
       <img src="こうせいトライ.jpg" class="hero-photo active">
       <img src="しゅうさくさんタックル.jpg" class="hero-photo">
       <img src="るいくんスタンド.jpg" class="hero-photo">
-      <img src="しょーきろいくんjpg.jpg" class="hero-photo">
+      <img src="しょーきるいくんjpg.jpg" class="hero-photo">
     </div>
 
     <div class="hero-title-sub">
@@ -639,10 +652,11 @@
         </div>
 
         <div>
-          <img
-            src="images/about-training.jpg"
-            alt="練習風景（からまつ公園グラウンド）"
-            class="member-photo"
+         <img
+           src="ラグビーボール.jpg"
+           alt="練習風景（からまつ公園グラウンド）"
+           class="member-photo"
+           />
           />
           <p style="font-size:12px; text-align:center; margin-top:4px;">
             練習風景（写真は差し替えてください）
@@ -1125,6 +1139,7 @@
   </script>
 </body>
 </html>
+
 
 
 
